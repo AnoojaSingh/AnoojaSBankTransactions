@@ -19,6 +19,29 @@ namespace AnoojaSBankTransactions
 
         private void btnCalInterest_Click(object sender, EventArgs e)
         {
+            double Interestrate = .8;
+            double price;
+            string AccNum;
+            string AccName;
+            string Deposit;
+
+            //input
+            price = double.Parse(txtAccNum.Text);
+            AccNum = txtAccNum.Text;
+            AccName = txtAccName.Text;
+            Deposit = txtDepositAmt.Text;
+
+            //Processing
+            CalInterest = Interestrate + Deposit;
+    
+
+            //Output
+            lstOut.Items.Add("Account Number:" + AccNum);
+            lstOut.Items.Add("Account Name:" + AccName);
+            lstOut.Items.Add("Deposit Amount:" + Deposit);
+            lstOut.Items.Add("Interest is:" + CalInterest);
+
+            btnClear.Focus();
 
         }
 
@@ -34,10 +57,11 @@ namespace AnoojaSBankTransactions
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtAccName.Clear();
             txtAccNum.Clear();
+            txtAccName.Clear();
             txtDepositAmt.Clear();
             lstOut.Items.Clear();
+            txtAccNum.Focus();
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
