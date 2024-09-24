@@ -19,27 +19,28 @@ namespace AnoojaSBankTransactions
 
         private void btnCalInterest_Click(object sender, EventArgs e)
         {
-            double Interestrate = .8;
-            double price;
-            string AccNum;
-            string AccName;
-            string Deposit;
+            string AccountNumber;
+            string AccountName;
+            double DepositAmt;
+            //keep old balance so it can be output
+            double CurrentBalance = 100;
+            double Balance = CurrentBalance;
+
 
             //input
-            price = double.Parse(txtAccNum.Text);
-            AccNum = txtAccNum.Text;
-            AccName = txtAccName.Text;
-            Deposit = txtDepositAmt.Text;
+            AccountNumber = txtAccNum.Text;
+            AccountName = txtAccName.Text;
+            DepositAmt= double.Parse(txtDepositAmt.Text);
 
             //Processing
-            CalInterest = Interestrate + Deposit;
+            Balance = CurrentBalance + DepositAmt;
     
 
             //Output
-            lstOut.Items.Add("Account Number:" + AccNum);
-            lstOut.Items.Add("Account Name:" + AccName);
-            lstOut.Items.Add("Deposit Amount:" + Deposit);
-            lstOut.Items.Add("Interest is:" + CalInterest);
+            lstOut.Items.Add("Account Number:" + AccountNumber);
+            lstOut.Items.Add("Account Name:" + AccountName);
+            lstOut.Items.Add("Deposit Amount:" + DepositAmt);
+            lstOut.Items.Add("New Balance is:" + Balance);
 
             btnClear.Focus();
 
