@@ -34,13 +34,12 @@ namespace AnoojaSBankTransactions
 
             //Processing
             Balance = CurrentBalance + DepositAmt;
-    
-
+   
             //Output
             lstOut.Items.Add("Account Number:" + AccountNumber);
             lstOut.Items.Add("Account Name:" + AccountName);
-            lstOut.Items.Add("Deposit Amount:" + DepositAmt);
-            lstOut.Items.Add("New Balance is:" + Balance);
+            lstOut.Items.Add("Deposit Amount:" + DepositAmt.ToString("C2"));
+            lstOut.Items.Add("New Balance is:" + Balance.ToString("C2"));
 
             btnClear.Focus();
 
