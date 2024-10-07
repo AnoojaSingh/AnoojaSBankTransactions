@@ -7,19 +7,10 @@ namespace AnoojaSBankTransactions
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+
+        private void btnNewBalance_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCalInterest_Click(object sender, EventArgs e)
-        {
-            string AccountNumber;
+            double AccNum;
             string AccountName;
             double DepositAmt;
             //keep old balance so it can be output
@@ -28,32 +19,40 @@ namespace AnoojaSBankTransactions
 
 
             //input
-            AccountNumber = txtAccNum.Text;
+            AccNum = txtAccNum.Text;
             AccountName = txtAccName.Text;
-            DepositAmt= double.Parse(txtDepositAmt.Text);
+            //DepositAmt = double.Parse(txtDepositAmt.Text);
+            bool DepositValid, AccNumValid;
+            DepositValid = double.TryParse(txtDepositAmt.Text, out DepositAmt);
+            AccNumValid = double.TryParse(txtAccNum.Text, out AccNum);
+            if (DepositValid && AccNumValid)
+            {
 
-            //Processing
-            Balance = CurrentBalance + DepositAmt;
-   
-            //Output
-            lstOut.Items.Add("Account Number : " + AccountNumber);
-            lstOut.Items.Add("Account Name : " + AccountName);
-            lstOut.Items.Add("Deposit Amount : " + DepositAmt.ToString("C2"));
-            lstOut.Items.Add("New Balance is : " + Balance.ToString("C2"));
+                //Processing
+                Balance = CurrentBalance + DepositAmt;
 
-            btnClear.Focus();
+                //Output
+                lstOut.Items.Add("Account Number : " + AccNum);
+                lstOut.Items.Add("Account Name : " + AccountName);
+                lstOut.Items.Add("Deposit Amount : " + DepositAmt.ToString("C2"));
+                lstOut.Items.Add("New Balance is : " + Balance.ToString("C2"));
 
+                btnClear.Focus();
+            }else
+            {
+                if (!DepositValid)
+                {
+                    lstOut.Items.Add("Please enter a valid numeric value for Deposit Amount.");
+                }
+                if (!AccNumValid)
+                {
+                    lstOut.Items.Add("Please enter a valid numeric value for Account Number.");
+                }
+     
+            }
         }
 
-        private void btnDeposit_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void btnWithdrawals_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -69,15 +68,6 @@ namespace AnoojaSBankTransactions
             this.Close();
         }
 
-        private void txtAccName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDepositAmt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtAccNum_Enter(object sender, EventArgs e)
         {
@@ -108,5 +98,7 @@ namespace AnoojaSBankTransactions
         {
             txtDepositAmt.BackColor = SystemColors.Window;
         }
+
+       
     }
 }

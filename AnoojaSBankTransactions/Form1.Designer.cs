@@ -1,4 +1,5 @@
-﻿namespace AnoojaSBankTransactions
+﻿
+namespace AnoojaSBankTransactions
 {
     partial class Form1
     {
@@ -36,7 +37,7 @@
             txtAccName = new TextBox();
             txtDepositAmt = new TextBox();
             lstOut = new ListBox();
-            btnCalInterest = new Button();
+            btnNewBalance = new Button();
             btnClear = new Button();
             btnQuit = new Button();
             SuspendLayout();
@@ -76,6 +77,7 @@
             label3.Size = new Size(102, 15);
             label3.TabIndex = 3;
             label3.Text = "Account Name:";
+            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -93,7 +95,7 @@
             // txtAccNum
             // 
             txtAccNum.Location = new Point(207, 73);
-            txtAccNum.Margin = new Padding(2, 2, 2, 2);
+            txtAccNum.Margin = new Padding(2);
             txtAccNum.Name = "txtAccNum";
             txtAccNum.Size = new Size(241, 23);
             txtAccNum.TabIndex = 2;
@@ -104,7 +106,7 @@
             // txtAccName
             // 
             txtAccName.Location = new Point(207, 103);
-            txtAccName.Margin = new Padding(2, 2, 2, 2);
+            txtAccName.Margin = new Padding(2);
             txtAccName.Name = "txtAccName";
             txtAccName.Size = new Size(241, 23);
             txtAccName.TabIndex = 4;
@@ -115,7 +117,7 @@
             // txtDepositAmt
             // 
             txtDepositAmt.Location = new Point(207, 137);
-            txtDepositAmt.Margin = new Padding(2, 2, 2, 2);
+            txtDepositAmt.Margin = new Padding(2);
             txtDepositAmt.Name = "txtDepositAmt";
             txtDepositAmt.Size = new Size(241, 23);
             txtDepositAmt.TabIndex = 6;
@@ -128,27 +130,28 @@
             lstOut.FormattingEnabled = true;
             lstOut.ItemHeight = 15;
             lstOut.Location = new Point(42, 190);
-            lstOut.Margin = new Padding(2, 2, 2, 2);
+            lstOut.Margin = new Padding(2);
             lstOut.Name = "lstOut";
             lstOut.Size = new Size(790, 214);
             lstOut.TabIndex = 10;
             lstOut.TabStop = false;
+            lstOut.SelectedIndexChanged += lstOut_SelectedIndexChanged;
             // 
-            // btnCalInterest
+            // btnNewBalance
             // 
-            btnCalInterest.Location = new Point(110, 425);
-            btnCalInterest.Margin = new Padding(2, 2, 2, 2);
-            btnCalInterest.Name = "btnCalInterest";
-            btnCalInterest.Size = new Size(141, 32);
-            btnCalInterest.TabIndex = 7;
-            btnCalInterest.Text = "View &New Balance";
-            btnCalInterest.UseVisualStyleBackColor = true;
-            btnCalInterest.Click += btnCalInterest_Click;
+            btnNewBalance.Location = new Point(110, 425);
+            btnNewBalance.Margin = new Padding(2);
+            btnNewBalance.Name = "btnNewBalance";
+            btnNewBalance.Size = new Size(141, 32);
+            btnNewBalance.TabIndex = 7;
+            btnNewBalance.Text = "View &New Balance";
+            btnNewBalance.UseVisualStyleBackColor = true;
+            btnNewBalance.Click += btnNewBalance_Click;
             // 
             // btnClear
             // 
             btnClear.Location = new Point(370, 425);
-            btnClear.Margin = new Padding(2, 2, 2, 2);
+            btnClear.Margin = new Padding(2);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(78, 32);
             btnClear.TabIndex = 11;
@@ -159,7 +162,7 @@
             // btnQuit
             // 
             btnQuit.Location = new Point(583, 425);
-            btnQuit.Margin = new Padding(2, 2, 2, 2);
+            btnQuit.Margin = new Padding(2);
             btnQuit.Name = "btnQuit";
             btnQuit.Size = new Size(78, 32);
             btnQuit.TabIndex = 12;
@@ -174,7 +177,7 @@
             ClientSize = new Size(868, 496);
             Controls.Add(btnQuit);
             Controls.Add(btnClear);
-            Controls.Add(btnCalInterest);
+            Controls.Add(btnNewBalance);
             Controls.Add(lstOut);
             Controls.Add(txtDepositAmt);
             Controls.Add(txtAccName);
@@ -183,11 +186,41 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Form1";
             Text = "AnoojaS";
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void lstOut_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void txtAccName_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void txtDepositAmt_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -200,7 +233,7 @@
         private TextBox txtAccName;
         private TextBox txtDepositAmt;
         private ListBox lstOut;
-        private Button btnCalInterest;
+        private Button btnNewBalance;
         private Button btnClear;
         private Button btnQuit;
     }
