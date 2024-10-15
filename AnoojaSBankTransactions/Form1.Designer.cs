@@ -40,6 +40,11 @@ namespace AnoojaSBankTransactions
             btnNewBalance = new Button();
             btnClear = new Button();
             btnQuit = new Button();
+            groupBox1 = new GroupBox();
+            rdoWithdrawal = new RadioButton();
+            rdoDeposit = new RadioButton();
+            rdoCalInterest = new RadioButton();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -65,6 +70,7 @@ namespace AnoojaSBankTransactions
             label2.Size = new Size(117, 15);
             label2.TabIndex = 1;
             label2.Text = "Account Number:";
+            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -129,7 +135,7 @@ namespace AnoojaSBankTransactions
             // 
             lstOut.FormattingEnabled = true;
             lstOut.ItemHeight = 15;
-            lstOut.Location = new Point(42, 190);
+            lstOut.Location = new Point(42, 261);
             lstOut.Margin = new Padding(2);
             lstOut.Name = "lstOut";
             lstOut.Size = new Size(790, 214);
@@ -139,7 +145,7 @@ namespace AnoojaSBankTransactions
             // 
             // btnNewBalance
             // 
-            btnNewBalance.Location = new Point(110, 425);
+            btnNewBalance.Location = new Point(107, 498);
             btnNewBalance.Margin = new Padding(2);
             btnNewBalance.Name = "btnNewBalance";
             btnNewBalance.Size = new Size(141, 32);
@@ -150,7 +156,7 @@ namespace AnoojaSBankTransactions
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(370, 425);
+            btnClear.Location = new Point(370, 498);
             btnClear.Margin = new Padding(2);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(78, 32);
@@ -161,7 +167,7 @@ namespace AnoojaSBankTransactions
             // 
             // btnQuit
             // 
-            btnQuit.Location = new Point(583, 425);
+            btnQuit.Location = new Point(606, 498);
             btnQuit.Margin = new Padding(2);
             btnQuit.Name = "btnQuit";
             btnQuit.Size = new Size(78, 32);
@@ -170,11 +176,62 @@ namespace AnoojaSBankTransactions
             btnQuit.UseVisualStyleBackColor = true;
             btnQuit.Click += btnQuit_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(rdoWithdrawal);
+            groupBox1.Controls.Add(rdoDeposit);
+            groupBox1.Controls.Add(rdoCalInterest);
+            groupBox1.Font = new Font("Lucida Fax", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.ForeColor = Color.SeaGreen;
+            groupBox1.Location = new Point(42, 165);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(790, 83);
+            groupBox1.TabIndex = 13;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Sort Type";
+            // 
+            // rdoWithdrawal
+            // 
+            rdoWithdrawal.AutoSize = true;
+            rdoWithdrawal.Location = new Point(564, 37);
+            rdoWithdrawal.Name = "rdoWithdrawal";
+            rdoWithdrawal.Size = new Size(96, 19);
+            rdoWithdrawal.TabIndex = 2;
+            rdoWithdrawal.TabStop = true;
+            rdoWithdrawal.Text = "Withdrawal";
+            rdoWithdrawal.UseVisualStyleBackColor = true;
+            rdoWithdrawal.CheckedChanged += rdoWithdrawal_CheckedChanged;
+            // 
+            // rdoDeposit
+            // 
+            rdoDeposit.AutoSize = true;
+            rdoDeposit.Location = new Point(318, 37);
+            rdoDeposit.Name = "rdoDeposit";
+            rdoDeposit.Size = new Size(74, 19);
+            rdoDeposit.TabIndex = 1;
+            rdoDeposit.TabStop = true;
+            rdoDeposit.Text = "Deposit";
+            rdoDeposit.UseVisualStyleBackColor = true;
+            rdoDeposit.CheckedChanged += rdoDeposit_CheckedChanged;
+            // 
+            // rdoCalInterest
+            // 
+            rdoCalInterest.AutoSize = true;
+            rdoCalInterest.Location = new Point(65, 37);
+            rdoCalInterest.Name = "rdoCalInterest";
+            rdoCalInterest.Size = new Size(136, 19);
+            rdoCalInterest.TabIndex = 0;
+            rdoCalInterest.TabStop = true;
+            rdoCalInterest.Text = "Calculate Interest";
+            rdoCalInterest.UseVisualStyleBackColor = true;
+            rdoCalInterest.CheckedChanged += rdoCalInterest_CheckedChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(868, 496);
+            ClientSize = new Size(868, 577);
+            Controls.Add(groupBox1);
             Controls.Add(btnQuit);
             Controls.Add(btnClear);
             Controls.Add(btnNewBalance);
@@ -189,8 +246,16 @@ namespace AnoojaSBankTransactions
             Margin = new Padding(2);
             Name = "Form1";
             Text = "AnoojaS";
+            Load += Form1_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void lstOut_SelectedIndexChanged(object sender, EventArgs e)
@@ -236,5 +301,9 @@ namespace AnoojaSBankTransactions
         private Button btnNewBalance;
         private Button btnClear;
         private Button btnQuit;
+        private GroupBox groupBox1;
+        private RadioButton rdoWithdrawal;
+        private RadioButton rdoDeposit;
+        private RadioButton rdoCalInterest;
     }
 }

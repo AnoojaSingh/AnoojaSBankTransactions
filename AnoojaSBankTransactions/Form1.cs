@@ -10,7 +10,7 @@ namespace AnoojaSBankTransactions
 
         private void btnNewBalance_Click(object sender, EventArgs e)
         {
-            double AccNum;
+            string AccNum;
             string AccountName;
             double DepositAmt;
             //keep old balance so it can be output
@@ -22,10 +22,9 @@ namespace AnoojaSBankTransactions
             AccNum = txtAccNum.Text;
             AccountName = txtAccName.Text;
             //DepositAmt = double.Parse(txtDepositAmt.Text);
-            bool DepositValid, AccNumValid;
+            bool DepositValid;
             DepositValid = double.TryParse(txtDepositAmt.Text, out DepositAmt);
-            AccNumValid = double.TryParse(txtAccNum.Text, out AccNum);
-            if (DepositValid && AccNumValid)
+            if (DepositValid)
             {
 
                 //Processing
@@ -38,17 +37,14 @@ namespace AnoojaSBankTransactions
                 lstOut.Items.Add("New Balance is : " + Balance.ToString("C2"));
 
                 btnClear.Focus();
-            }else
+            }
+            else
             {
-                if (!DepositValid)
-                {
-                    lstOut.Items.Add("Please enter a valid numeric value for Deposit Amount.");
-                }
-                if (!AccNumValid)
-                {
-                    lstOut.Items.Add("Please enter a valid numeric value for Account Number.");
-                }
-     
+
+                lstOut.Items.Add("Please enter a valid numeric value for Deposit Amount.");
+
+
+
             }
         }
 
@@ -65,9 +61,17 @@ namespace AnoojaSBankTransactions
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
+            DialogResult ButtonSelected;
+            ButtonSelected = MessageBox.Show(
+                "Do you want to Quit?", "Exiting...",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (ButtonSelected == DialogResult.Yes)
+            {
+                this.Close();
+            }
 
+        }
 
         private void txtAccNum_Enter(object sender, EventArgs e)
         {
@@ -99,6 +103,28 @@ namespace AnoojaSBankTransactions
             txtDepositAmt.BackColor = SystemColors.Window;
         }
 
-       
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //this makes the checked chnage procedure to run
+            rdoCalInterest.Checked = true;
+        }
+
+        private void rdoCalInterest_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoCalInterest.Checked)
+            {
+
+            }
+        }
+
+        private void rdoDeposit_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoWithdrawal_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
