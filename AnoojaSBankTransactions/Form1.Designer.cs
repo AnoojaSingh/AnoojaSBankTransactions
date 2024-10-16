@@ -40,11 +40,11 @@ namespace AnoojaSBankTransactions
             btnNewBalance = new Button();
             btnClear = new Button();
             btnQuit = new Button();
-            groupBox1 = new GroupBox();
+            CalculateType = new GroupBox();
             rdoWithdrawal = new RadioButton();
             rdoDeposit = new RadioButton();
             rdoCalInterest = new RadioButton();
-            groupBox1.SuspendLayout();
+            CalculateType.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -135,7 +135,7 @@ namespace AnoojaSBankTransactions
             // 
             lstOut.FormattingEnabled = true;
             lstOut.ItemHeight = 15;
-            lstOut.Location = new Point(42, 261);
+            lstOut.Location = new Point(42, 271);
             lstOut.Margin = new Padding(2);
             lstOut.Name = "lstOut";
             lstOut.Size = new Size(790, 214);
@@ -176,19 +176,19 @@ namespace AnoojaSBankTransactions
             btnQuit.UseVisualStyleBackColor = true;
             btnQuit.Click += btnQuit_Click;
             // 
-            // groupBox1
+            // CalculateType
             // 
-            groupBox1.Controls.Add(rdoWithdrawal);
-            groupBox1.Controls.Add(rdoDeposit);
-            groupBox1.Controls.Add(rdoCalInterest);
-            groupBox1.Font = new Font("Lucida Fax", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.ForeColor = Color.SeaGreen;
-            groupBox1.Location = new Point(42, 165);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(790, 83);
-            groupBox1.TabIndex = 13;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Sort Type";
+            CalculateType.Controls.Add(rdoWithdrawal);
+            CalculateType.Controls.Add(rdoDeposit);
+            CalculateType.Controls.Add(rdoCalInterest);
+            CalculateType.Font = new Font("Lucida Fax", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CalculateType.ForeColor = Color.SeaGreen;
+            CalculateType.Location = new Point(42, 183);
+            CalculateType.Name = "CalculateType";
+            CalculateType.Size = new Size(790, 83);
+            CalculateType.TabIndex = 13;
+            CalculateType.TabStop = false;
+            CalculateType.Text = "Calculate Type:";
             // 
             // rdoWithdrawal
             // 
@@ -219,10 +219,10 @@ namespace AnoojaSBankTransactions
             rdoCalInterest.AutoSize = true;
             rdoCalInterest.Location = new Point(65, 37);
             rdoCalInterest.Name = "rdoCalInterest";
-            rdoCalInterest.Size = new Size(136, 19);
+            rdoCalInterest.Size = new Size(74, 19);
             rdoCalInterest.TabIndex = 0;
             rdoCalInterest.TabStop = true;
-            rdoCalInterest.Text = "Calculate Interest";
+            rdoCalInterest.Text = "Interest";
             rdoCalInterest.UseVisualStyleBackColor = true;
             rdoCalInterest.CheckedChanged += rdoCalInterest_CheckedChanged;
             // 
@@ -231,7 +231,7 @@ namespace AnoojaSBankTransactions
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(868, 577);
-            Controls.Add(groupBox1);
+            Controls.Add(CalculateType);
             Controls.Add(btnQuit);
             Controls.Add(btnClear);
             Controls.Add(btnNewBalance);
@@ -247,8 +247,8 @@ namespace AnoojaSBankTransactions
             Name = "Form1";
             Text = "AnoojaS";
             Load += Form1_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            CalculateType.ResumeLayout(false);
+            CalculateType.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -301,7 +301,7 @@ namespace AnoojaSBankTransactions
         private Button btnNewBalance;
         private Button btnClear;
         private Button btnQuit;
-        private GroupBox groupBox1;
+        private GroupBox CalculateType;
         private RadioButton rdoWithdrawal;
         private RadioButton rdoDeposit;
         private RadioButton rdoCalInterest;

@@ -1,7 +1,13 @@
+using System.Configuration.Internal;
+//Anooja Singh
 namespace AnoojaSBankTransactions
 {
     public partial class Form1 : Form
     {
+        private string CalculateType;
+        const string INTEREST = "Interest";
+        const string DEPOSIT = "Deposit";
+        const string WITHDRAWAL = "Withdrawal";
         public Form1()
         {
             InitializeComponent();
@@ -16,25 +22,42 @@ namespace AnoojaSBankTransactions
             //keep old balance so it can be output
             double CurrentBalance = 100;
             double Balance = CurrentBalance;
+            bool DepositValid;
 
-
+            double CalculateTypeFee = 0;
             //input
             AccNum = txtAccNum.Text;
             AccountName = txtAccName.Text;
             //DepositAmt = double.Parse(txtDepositAmt.Text);
-            bool DepositValid;
             DepositValid = double.TryParse(txtDepositAmt.Text, out DepositAmt);
             if (DepositValid)
             {
-
+                switch (CalculateType)
+                {
+                    case INTEREST:
+                        CalculateTypeFee = 0;
+                        break;
+                    case DEPOSIT:
+                        CalculateTypeFee = 25;
+                        break;
+                    case WITHDRAWAL:
+                        CalculateTypeFee = 100;
+                        break;
+                    default:
+                        lstOut.Items.Add("This should never happen");
+                        break;
+                }
                 //Processing
                 Balance = CurrentBalance + DepositAmt;
 
                 //Output
                 lstOut.Items.Add("Account Number : " + AccNum);
                 lstOut.Items.Add("Account Name : " + AccountName);
+                lstOut.Items.Add("Calculate Type is" + CalculateType);
+                lstOut.Items.Add("Calculate type is " + CalculateTypeFee.ToString("C"));
                 lstOut.Items.Add("Deposit Amount : " + DepositAmt.ToString("C2"));
                 lstOut.Items.Add("New Balance is : " + Balance.ToString("C2"));
+                
 
                 btnClear.Focus();
             }
@@ -57,6 +80,7 @@ namespace AnoojaSBankTransactions
             txtDepositAmt.Clear();
             lstOut.Items.Clear();
             txtAccNum.Focus();
+            rdoCalInterest.Checked = true;
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
@@ -113,18 +137,24 @@ namespace AnoojaSBankTransactions
         {
             if (rdoCalInterest.Checked)
             {
-
+                CalculateType = INTEREST;
             }
         }
 
         private void rdoDeposit_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (rdoDeposit.Checked)
+            {
+                CalculateType = DEPOSIT;
+            }
         }
 
         private void rdoWithdrawal_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (rdoWithdrawal.Checked)
+            {
+                CalculateType = WITHDRAWAL;
+            }
         }
     }
 }
