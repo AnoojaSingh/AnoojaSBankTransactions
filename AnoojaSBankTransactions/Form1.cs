@@ -8,6 +8,7 @@ namespace AnoojaSBankTransactions
         const string INTEREST = "Interest";
         const string DEPOSIT = "Deposit";
         const string WITHDRAWAL = "Withdrawal";
+
         public Form1()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace AnoojaSBankTransactions
                         CalculateTypeFee = 0;
                         break;
                     case DEPOSIT:
-                        CalculateTypeFee = 25;
+                        CalculateTypeFee = 25; 
                         break;
                     case WITHDRAWAL:
                         CalculateTypeFee = 100;
@@ -46,6 +47,11 @@ namespace AnoojaSBankTransactions
                     default:
                         lstOut.Items.Add("This should never happen");
                         break;
+
+
+
+
+
                 }
                 //Processing
                 Balance = CurrentBalance + DepositAmt;
@@ -53,11 +59,11 @@ namespace AnoojaSBankTransactions
                 //Output
                 lstOut.Items.Add("Account Number : " + AccNum);
                 lstOut.Items.Add("Account Name : " + AccountName);
-                lstOut.Items.Add("Calculate Type is" + CalculateType);
-                lstOut.Items.Add("Calculate type is " + CalculateTypeFee.ToString("C"));
+                lstOut.Items.Add("Calculate type is" + CalculateType);
+                lstOut.Items.Add("Calculate Type Fee is" + CalculateTypeFee.ToString("C"));
                 lstOut.Items.Add("Deposit Amount : " + DepositAmt.ToString("C2"));
                 lstOut.Items.Add("New Balance is : " + Balance.ToString("C2"));
-                
+
 
                 btnClear.Focus();
             }
@@ -70,9 +76,6 @@ namespace AnoojaSBankTransactions
 
             }
         }
-
-
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtAccNum.Clear();
@@ -80,7 +83,7 @@ namespace AnoojaSBankTransactions
             txtDepositAmt.Clear();
             lstOut.Items.Clear();
             txtAccNum.Focus();
-            rdoCalInterest.Checked = true;
+            rdoInterest.Checked = true;
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
@@ -127,15 +130,19 @@ namespace AnoojaSBankTransactions
             txtDepositAmt.BackColor = SystemColors.Window;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
-            //this makes the checked chnage procedure to run
-            rdoCalInterest.Checked = true;
+
         }
 
-        private void rdoCalInterest_CheckedChanged(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            if (rdoCalInterest.Checked)
+            rdoInterest.Checked = true;
+        }
+
+        private void rdoInterest_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoInterest.Checked)
             {
                 CalculateType = INTEREST;
             }
@@ -151,7 +158,7 @@ namespace AnoojaSBankTransactions
 
         private void rdoWithdrawal_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdoWithdrawal.Checked)
+            if (!rdoWithdrawal.Checked)
             {
                 CalculateType = WITHDRAWAL;
             }
