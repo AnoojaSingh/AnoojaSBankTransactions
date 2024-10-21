@@ -1,4 +1,5 @@
 using System.Configuration.Internal;
+using System.Diagnostics;
 //Anooja Singh
 namespace AnoojaSBankTransactions
 {
@@ -6,7 +7,7 @@ namespace AnoojaSBankTransactions
     {
         private string CalculateType;
         const string INTEREST = "Interest";
-        const string DEPOSIT = "Deposit";
+        const string DEPOSIT = "Depsosit";
         const string WITHDRAWAL = "Withdrawal";
 
         public Form1()
@@ -34,25 +35,23 @@ namespace AnoojaSBankTransactions
             if (DepositValid)
             {
                 switch (CalculateType)
-                {
+                 {
                     case INTEREST:
-                        CalculateTypeFee = 0;
+                        CalculateTypeFee = .5;
                         break;
                     case DEPOSIT:
-                        CalculateTypeFee = 25; 
+                        CalculateTypeFee = 0;
                         break;
                     case WITHDRAWAL:
-                        CalculateTypeFee = 100;
+                        CalculateTypeFee = .10;
                         break;
                     default:
                         lstOut.Items.Add("This should never happen");
                         break;
-
-
-
-
-
+                
                 }
+
+
                 //Processing
                 Balance = CurrentBalance + DepositAmt;
 
@@ -158,7 +157,7 @@ namespace AnoojaSBankTransactions
 
         private void rdoWithdrawal_CheckedChanged(object sender, EventArgs e)
         {
-            if (!rdoWithdrawal.Checked)
+            if(rdoWithdrawal.Checked)
             {
                 CalculateType = WITHDRAWAL;
             }
