@@ -7,7 +7,7 @@ namespace AnoojaSBankTransactions
     {
         private string CalculateType;
         const string INTEREST = "Interest";
-        const string DEPOSIT = "Depsosit";
+        const string DEPOSIT = "Deposit";
         const string WITHDRAWAL = "Withdrawal";
 
         public Form1()
@@ -20,47 +20,47 @@ namespace AnoojaSBankTransactions
         {
             string AccNum;
             string AccountName;
-            double DepositAmt;
+            double TransactionAmt;
             //keep old balance so it can be output
             double CurrentBalance = 100;
             double Balance = CurrentBalance;
             bool DepositValid;
 
-            double CalculateTypeFee = 0;
+            double CalculateTypeBalance = 0;
             //input
             AccNum = txtAccNum.Text;
             AccountName = txtAccName.Text;
             //DepositAmt = double.Parse(txtDepositAmt.Text);
-            DepositValid = double.TryParse(txtDepositAmt.Text, out DepositAmt);
+            DepositValid = double.TryParse(txtTransactionAmt.Text, out TransactionAmt);
             if (DepositValid)
             {
                 switch (CalculateType)
                  {
                     case INTEREST:
-                        CalculateTypeFee = .5;
+                        CalculateTypeBalance = TransactionAmt + .05; 
                         break;
                     case DEPOSIT:
-                        CalculateTypeFee = 0;
+                        CalculateTypeBalance = TransactionAmt + Balance;
                         break;
                     case WITHDRAWAL:
-                        CalculateTypeFee = .10;
+                        CalculateTypeBalance = Balance - TransactionAmt;
                         break;
                     default:
-                        lstOut.Items.Add("This should never happen");
+                        lstOut.Items.Add("Invalid Selection");
                         break;
                 
                 }
 
 
                 //Processing
-                Balance = CurrentBalance + DepositAmt;
+                Balance = CurrentBalance + TransactionAmt;
 
                 //Output
                 lstOut.Items.Add("Account Number : " + AccNum);
                 lstOut.Items.Add("Account Name : " + AccountName);
                 lstOut.Items.Add("Calculate type is" + CalculateType);
-                lstOut.Items.Add("Calculate Type Fee is" + CalculateTypeFee.ToString("C"));
-                lstOut.Items.Add("Deposit Amount : " + DepositAmt.ToString("C2"));
+                lstOut.Items.Add("Calculate Type Balance is" + CalculateTypeBalance.ToString("C"));
+                lstOut.Items.Add("Transaction Amount : " + TransactionAmt.ToString("C2"));
                 lstOut.Items.Add("New Balance is : " + Balance.ToString("C2"));
 
 
@@ -69,7 +69,7 @@ namespace AnoojaSBankTransactions
             else
             {
 
-                lstOut.Items.Add("Please enter a valid numeric value for Deposit Amount.");
+                lstOut.Items.Add("Please enter a valid numeric value for Transaction Amount.");
 
 
 
@@ -79,7 +79,7 @@ namespace AnoojaSBankTransactions
         {
             txtAccNum.Clear();
             txtAccName.Clear();
-            txtDepositAmt.Clear();
+            txtTransactionAmt.Clear();
             lstOut.Items.Clear();
             txtAccNum.Focus();
             rdoInterest.Checked = true;
@@ -121,12 +121,12 @@ namespace AnoojaSBankTransactions
 
         private void txtDepositAmt_Enter(object sender, EventArgs e)
         {
-            txtDepositAmt.BackColor = Color.Bisque;
+            txtTransactionAmt.BackColor = Color.Bisque;
         }
 
         private void txtDepositAmt_Leave(object sender, EventArgs e)
         {
-            txtDepositAmt.BackColor = SystemColors.Window;
+            txtTransactionAmt.BackColor = SystemColors.Window;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

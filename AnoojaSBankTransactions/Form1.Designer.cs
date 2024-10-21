@@ -35,7 +35,7 @@ namespace AnoojaSBankTransactions
             label4 = new Label();
             txtAccNum = new TextBox();
             txtAccName = new TextBox();
-            txtDepositAmt = new TextBox();
+            txtTransactionAmt = new TextBox();
             lstOut = new ListBox();
             btnNewBalance = new Button();
             btnClear = new Button();
@@ -93,9 +93,9 @@ namespace AnoojaSBankTransactions
             label4.Location = new Point(42, 140);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(114, 15);
+            label4.Size = new Size(141, 15);
             label4.TabIndex = 5;
-            label4.Text = "Deposit Amount:";
+            label4.Text = "Transaction Amount:";
             label4.Click += label4_Click;
             // 
             // txtAccNum
@@ -120,16 +120,16 @@ namespace AnoojaSBankTransactions
             txtAccName.Enter += txtAccName_Enter;
             txtAccName.Leave += txtAccName_Leave;
             // 
-            // txtDepositAmt
+            // txtTransactionAmt
             // 
-            txtDepositAmt.Location = new Point(207, 137);
-            txtDepositAmt.Margin = new Padding(2);
-            txtDepositAmt.Name = "txtDepositAmt";
-            txtDepositAmt.Size = new Size(241, 23);
-            txtDepositAmt.TabIndex = 6;
-            txtDepositAmt.TextChanged += txtDepositAmt_TextChanged;
-            txtDepositAmt.Enter += txtDepositAmt_Enter;
-            txtDepositAmt.Leave += txtDepositAmt_Leave;
+            txtTransactionAmt.Location = new Point(207, 137);
+            txtTransactionAmt.Margin = new Padding(2);
+            txtTransactionAmt.Name = "txtTransactionAmt";
+            txtTransactionAmt.Size = new Size(241, 23);
+            txtTransactionAmt.TabIndex = 6;
+            txtTransactionAmt.TextChanged += txtDepositAmt_TextChanged;
+            txtTransactionAmt.Enter += txtDepositAmt_Enter;
+            txtTransactionAmt.Leave += txtDepositAmt_Leave;
             // 
             // lstOut
             // 
@@ -235,7 +235,7 @@ namespace AnoojaSBankTransactions
             Controls.Add(btnClear);
             Controls.Add(btnNewBalance);
             Controls.Add(lstOut);
-            Controls.Add(txtDepositAmt);
+            Controls.Add(txtTransactionAmt);
             Controls.Add(txtAccName);
             Controls.Add(txtAccNum);
             Controls.Add(label4);
@@ -295,7 +295,7 @@ namespace AnoojaSBankTransactions
         private Label label4;
         private TextBox txtAccNum;
         private TextBox txtAccName;
-        private TextBox txtDepositAmt;
+        private TextBox txtTransactionAmt;
         private ListBox lstOut;
         private Button btnNewBalance;
         private Button btnClear;
