@@ -44,6 +44,8 @@ namespace AnoojaSBankTransactions
             rdoWithdrawal = new RadioButton();
             rdoDeposit = new RadioButton();
             rdoInterest = new RadioButton();
+            openFileDialog1 = new OpenFileDialog();
+            openFileDialog2 = new OpenFileDialog();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -225,6 +227,14 @@ namespace AnoojaSBankTransactions
             rdoInterest.UseVisualStyleBackColor = true;
             rdoInterest.CheckedChanged += rdoInterest_CheckedChanged;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // openFileDialog2
+            // 
+            openFileDialog2.FileName = "openFileDialog2";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -251,6 +261,7 @@ namespace AnoojaSBankTransactions
             ResumeLayout(false);
             PerformLayout();
         }
+
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -286,7 +297,6 @@ namespace AnoojaSBankTransactions
         {
             throw new NotImplementedException();
         }
-
         #endregion
 
         private Label label1;
@@ -304,5 +314,7 @@ namespace AnoojaSBankTransactions
         private RadioButton rdoWithdrawal;
         private RadioButton rdoDeposit;
         private RadioButton rdoInterest;
+        private OpenFileDialog openFileDialog1;
+        private OpenFileDialog openFileDialog2;
     }
 }

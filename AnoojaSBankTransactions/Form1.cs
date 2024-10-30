@@ -1,5 +1,6 @@
 using System.Configuration.Internal;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 //Anooja Singh
 namespace AnoojaSBankTransactions
 {
@@ -9,6 +10,10 @@ namespace AnoojaSBankTransactions
         const string INTEREST = "Interest";
         const string DEPOSIT = "Deposit";
         const string WITHDRAWAL = "Withdrawal";
+        private double InterestRate = .05;
+
+        private string BankTransactionLog = "BankTransLog.txt";
+        private string BankConfig = "BankConfig.txt";
 
         public Form1()
         {
@@ -25,6 +30,7 @@ namespace AnoojaSBankTransactions
             double CurrentBalance = 100;
             double Balance = CurrentBalance;
             bool DepositValid;
+            StreamWriter sw;
 
             double CalculateTypeBalance = 0;
             //input
@@ -37,7 +43,7 @@ namespace AnoojaSBankTransactions
                 switch (CalculateType)
                  {
                     case INTEREST:
-                        CalculateTypeBalance = TransactionAmt + .05; 
+                        CalculateTypeBalance = TransactionAmt + Balance * InterestRate; 
                         break;
                     case DEPOSIT:
                         CalculateTypeBalance = TransactionAmt + Balance;
@@ -51,7 +57,6 @@ namespace AnoojaSBankTransactions
                 
                 }
 
-
                 //Processing
                 Balance = CurrentBalance + TransactionAmt;
 
@@ -62,17 +67,23 @@ namespace AnoojaSBankTransactions
                 lstOut.Items.Add("Calculate Type Balance is" + CalculateTypeBalance.ToString("C"));
                 lstOut.Items.Add("Transaction Amount : " + TransactionAmt.ToString("C2"));
                 lstOut.Items.Add("New Balance is : " + Balance.ToString("C2"));
+                sw = File.AppendText(BankTransactionLog);
+                sw.WriteLine("*********** Beginning of Transaction at " +
+                            DateTime.Now.ToString("G") + " **********");
+                sw.WriteLine("Account Number : " + AccNum);
+                sw.WriteLine("Account Name : " + AccountName);
+                sw.WriteLine("Calculate type is" + CalculateType);
+                sw.WriteLine("Calculate Type Balance is" + CalculateTypeBalance.ToString("C"));
+                sw.WriteLine("Transaction Amount : " + TransactionAmt.ToString("C2"));
+                sw.WriteLine("New Balance is : " + Balance.ToString("C2"));
 
+                sw.Close();
 
                 btnClear.Focus();
             }
             else
             {
-
                 lstOut.Items.Add("Please enter a valid numeric value for Transaction Amount.");
-
-
-
             }
         }
         private void btnClear_Click(object sender, EventArgs e)
@@ -96,7 +107,6 @@ namespace AnoojaSBankTransactions
             {
                 this.Close();
             }
-
         }
 
         private void txtAccNum_Enter(object sender, EventArgs e)
@@ -137,6 +147,24 @@ namespace AnoojaSBankTransactions
         private void Form1_Load(object sender, EventArgs e)
         {
             rdoInterest.Checked = true;
+            StreamReader reader;
+            bool valValid;
+            bool fileBad = true;
+            try
+            {
+
+                reader = File.OpenText(BankConfig);
+                valValid = double.TryParse(reader.ReadLine(), out InterestRate);
+                reader.Close();
+            }catch (Exception ex)
+            {
+                MessageBox.Show("The configuration file was not found. Please select a different file \n Error message",
+                    ex.Message
+                    );
+                openFileDialog1. InitialDirectory = Application.StartupPath;    
+                openFileDialog2.ShowDialog();
+                BankConfig = openFileDialog1.FileName;
+            }
         }
 
         private void rdoInterest_CheckedChanged(object sender, EventArgs e)
@@ -144,6 +172,9 @@ namespace AnoojaSBankTransactions
             if (rdoInterest.Checked)
             {
                 CalculateType = INTEREST;
+                //txtTransactionAmt.Enabled = false;
+               // Else 
+
             }
         }
 
@@ -162,5 +193,7 @@ namespace AnoojaSBankTransactions
                 CalculateType = WITHDRAWAL;
             }
         }
+        
+
     }
 }
