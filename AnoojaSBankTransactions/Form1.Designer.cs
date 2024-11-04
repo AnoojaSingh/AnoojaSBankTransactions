@@ -45,7 +45,6 @@ namespace AnoojaSBankTransactions
             rdoDeposit = new RadioButton();
             rdoInterest = new RadioButton();
             openFileDialog1 = new OpenFileDialog();
-            openFileDialog2 = new OpenFileDialog();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -72,7 +71,6 @@ namespace AnoojaSBankTransactions
             label2.Size = new Size(117, 15);
             label2.TabIndex = 1;
             label2.Text = "Account Number:";
-            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -85,7 +83,6 @@ namespace AnoojaSBankTransactions
             label3.Size = new Size(102, 15);
             label3.TabIndex = 3;
             label3.Text = "Account Name:";
-            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -98,7 +95,6 @@ namespace AnoojaSBankTransactions
             label4.Size = new Size(141, 15);
             label4.TabIndex = 5;
             label4.Text = "Transaction Amount:";
-            label4.Click += label4_Click;
             // 
             // txtAccNum
             // 
@@ -107,7 +103,6 @@ namespace AnoojaSBankTransactions
             txtAccNum.Name = "txtAccNum";
             txtAccNum.Size = new Size(241, 23);
             txtAccNum.TabIndex = 2;
-            txtAccNum.TextChanged += textBox1_TextChanged;
             txtAccNum.Enter += txtAccNum_Enter;
             txtAccNum.Leave += txtAccNum_Leave;
             // 
@@ -118,7 +113,6 @@ namespace AnoojaSBankTransactions
             txtAccName.Name = "txtAccName";
             txtAccName.Size = new Size(241, 23);
             txtAccName.TabIndex = 4;
-            txtAccName.TextChanged += txtAccName_TextChanged;
             txtAccName.Enter += txtAccName_Enter;
             txtAccName.Leave += txtAccName_Leave;
             // 
@@ -129,7 +123,6 @@ namespace AnoojaSBankTransactions
             txtTransactionAmt.Name = "txtTransactionAmt";
             txtTransactionAmt.Size = new Size(241, 23);
             txtTransactionAmt.TabIndex = 6;
-            txtTransactionAmt.TextChanged += txtDepositAmt_TextChanged;
             txtTransactionAmt.Enter += txtDepositAmt_Enter;
             txtTransactionAmt.Leave += txtDepositAmt_Leave;
             // 
@@ -143,7 +136,6 @@ namespace AnoojaSBankTransactions
             lstOut.Size = new Size(790, 214);
             lstOut.TabIndex = 10;
             lstOut.TabStop = false;
-            lstOut.SelectedIndexChanged += lstOut_SelectedIndexChanged;
             // 
             // btnNewBalance
             // 
@@ -188,7 +180,7 @@ namespace AnoojaSBankTransactions
             groupBox1.Size = new Size(790, 79);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Calculate Type";
+            groupBox1.Text = "Transaction Type";
             groupBox1.Enter += groupBox1_Enter;
             // 
             // rdoWithdrawal
@@ -231,10 +223,6 @@ namespace AnoojaSBankTransactions
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // openFileDialog2
-            // 
-            openFileDialog2.FileName = "openFileDialog2";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -262,42 +250,8 @@ namespace AnoojaSBankTransactions
             PerformLayout();
         }
 
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void lstOut_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void txtAccName_TextChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void txtDepositAmt_TextChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
         #endregion
+
 
         private Label label1;
         private Label label2;
@@ -315,6 +269,6 @@ namespace AnoojaSBankTransactions
         private RadioButton rdoDeposit;
         private RadioButton rdoInterest;
         private OpenFileDialog openFileDialog1;
-        private OpenFileDialog openFileDialog2;
+ 
     }
 }

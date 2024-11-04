@@ -6,7 +6,7 @@ namespace AnoojaSBankTransactions
 {
     public partial class Form1 : Form
     {
-        private string CalculateType;
+        private string TransactionType;
         const string INTEREST = "Interest";
         const string DEPOSIT = "Deposit";
         const string WITHDRAWAL = "Withdrawal";
@@ -40,10 +40,10 @@ namespace AnoojaSBankTransactions
             DepositValid = double.TryParse(txtTransactionAmt.Text, out TransactionAmt);
             if (DepositValid)
             {
-                switch (CalculateType)
+                switch (TransactionType)
                  {
                     case INTEREST:
-                        CalculateTypeBalance = TransactionAmt + Balance * InterestRate; 
+                        CalculateTypeBalance = Balance * InterestRate; 
                         break;
                     case DEPOSIT:
                         CalculateTypeBalance = TransactionAmt + Balance;
@@ -63,19 +63,17 @@ namespace AnoojaSBankTransactions
                 //Output
                 lstOut.Items.Add("Account Number : " + AccNum);
                 lstOut.Items.Add("Account Name : " + AccountName);
-                lstOut.Items.Add("Calculate type is" + CalculateType);
-                lstOut.Items.Add("Calculate Type Balance is" + CalculateTypeBalance.ToString("C"));
                 lstOut.Items.Add("Transaction Amount : " + TransactionAmt.ToString("C2"));
-                lstOut.Items.Add("New Balance is : " + Balance.ToString("C2"));
+                lstOut.Items.Add("Tranaction Type is : " + TransactionType);
+                lstOut.Items.Add("Account Balance is : " + CalculateTypeBalance.ToString("C2"));
                 sw = File.AppendText(BankTransactionLog);
                 sw.WriteLine("*********** Beginning of Transaction at " +
                             DateTime.Now.ToString("G") + " **********");
                 sw.WriteLine("Account Number : " + AccNum);
                 sw.WriteLine("Account Name : " + AccountName);
-                sw.WriteLine("Calculate type is" + CalculateType);
-                sw.WriteLine("Calculate Type Balance is" + CalculateTypeBalance.ToString("C"));
                 sw.WriteLine("Transaction Amount : " + TransactionAmt.ToString("C2"));
-                sw.WriteLine("New Balance is : " + Balance.ToString("C2"));
+                sw.WriteLine("Transaction type is" + TransactionType);
+                sw.WriteLine("Account Balance is : " + CalculateTypeBalance.ToString("C2"));
 
                 sw.Close();
 
@@ -147,34 +145,40 @@ namespace AnoojaSBankTransactions
         private void Form1_Load(object sender, EventArgs e)
         {
             rdoInterest.Checked = true;
-            StreamReader reader;
-            bool valValid;
-            bool fileBad = true;
-            try
-            {
+            //StreamReader reader;
+            //bool valValid;
+            //bool fileBad = true;
+           // do
+           // {
+                //try
+                //{
 
-                reader = File.OpenText(BankConfig);
-                valValid = double.TryParse(reader.ReadLine(), out InterestRate);
-                reader.Close();
-            }catch (Exception ex)
-            {
-                MessageBox.Show("The configuration file was not found. Please select a different file \n Error message",
-                    ex.Message
-                    );
-                openFileDialog1. InitialDirectory = Application.StartupPath;    
-                openFileDialog2.ShowDialog();
-                BankConfig = openFileDialog1.FileName;
-            }
-        }
+                    //reader = File.OpenText(BankConfig);
+                    //valValid = double.TryParse(reader.ReadLine(), out InterestRate);
+                   // reader.Close();
+               // }
+               // catch (Exception ex)
+                //{
+                    //MessageBox.Show("The configuration file was not found. Please select a different file \n Error message",
+                        //ex.Message
+                       // );
+                    //openFileDialog1.InitialDirectory = Application.StartupPath;
+                   // openFileDialog2.ShowDialog();
+                   //BankConfig = openFileDialog1.FileName;
+              //  }
+          // } while (fileBad);
+       }
 
         private void rdoInterest_CheckedChanged(object sender, EventArgs e)
         {
             if (rdoInterest.Checked)
             {
-                CalculateType = INTEREST;
-                //txtTransactionAmt.Enabled = false;
-               // Else 
-
+                TransactionType = INTEREST;
+                txtTransactionAmt.Enabled = true; 
+            }
+            else
+            {
+                txtTransactionAmt.Enabled = false;
             }
         }
 
@@ -182,7 +186,7 @@ namespace AnoojaSBankTransactions
         {
             if (rdoDeposit.Checked)
             {
-                CalculateType = DEPOSIT;
+                TransactionType = DEPOSIT;
             }
         }
 
@@ -190,7 +194,7 @@ namespace AnoojaSBankTransactions
         {
             if(rdoWithdrawal.Checked)
             {
-                CalculateType = WITHDRAWAL;
+                TransactionType = WITHDRAWAL;
             }
         }
         
