@@ -20,7 +20,6 @@ namespace AnoojaSBankTransactions
             InitializeComponent();
         }
 
-
         private void btnNewBalance_Click(object sender, EventArgs e)
         {
             string AccNum;
@@ -43,7 +42,7 @@ namespace AnoojaSBankTransactions
                 switch (TransactionType)
                  {
                     case INTEREST:
-                        CalculateTypeBalance = Balance * InterestRate; 
+                        CalculateTypeBalance = Balance + TransactionAmt * InterestRate; 
                         break;
                     case DEPOSIT:
                         CalculateTypeBalance = TransactionAmt + Balance;
@@ -53,8 +52,7 @@ namespace AnoojaSBankTransactions
                         break;
                     default:
                         lstOut.Items.Add("Invalid Selection");
-                        break;
-                
+                        break;                
                 }
 
                 //Processing
