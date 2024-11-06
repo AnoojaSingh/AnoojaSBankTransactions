@@ -1,0 +1,18 @@
+*********** Beginning of Transaction at 11/6/2024 11:54:18 AM **********
+Account Number : 45488787
+Account Name : Anooja
+Transaction Amount : $100.00
+Transaction type isInterest
+Account Balance is : $105.00
+*********** Beginning of Transaction at 11/6/2024 11:54:20 AM **********
+Account Number : 45488787
+Account Name : Anooja
+Transaction Amount : $100.00
+Transaction type isDeposit
+Account Balance is : $200.00
+*********** Beginning of Transaction at 11/6/2024 11:54:23 AM **********
+Account Number : 45488787
+Account Name : Anooja
+Transaction Amount : $100.00
+Transaction type isWithdrawal
+Account Balance is : $0.00
