@@ -1,3 +1,4 @@
+using System.CodeDom.Compiler;
 using System.Configuration.Internal;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
@@ -14,6 +15,12 @@ namespace AnoojaSBankTransactions
 
         private string BankTransactionLog = "BankTransLog.txt";
         private string BankConfig = "BankConfig.txt";
+
+    //public double InterestRate
+        //{
+           // get { return interestRate; }
+            //set { InterestRate = value; }
+        //}
 
         public Form1()
         {
@@ -146,13 +153,16 @@ namespace AnoojaSBankTransactions
             //StreamReader reader;
             //bool valValid;
             //bool fileBad = true;
-           // do
-           // {
-                //try
-                //{
+            // do
+            // {
+            //try
+            //{
 
-                    //reader = File.OpenText(BankConfig);
-                    //valValid = double.TryParse(reader.ReadLine(), out InterestRate);
+            //reader = File.OpenText(BankConfig);
+            //fileBad = false;
+            //double tempValue;
+            //valValid = double.TryParse(reader.ReadLine(), out InterestRate);
+            //InterestRate = tempValue; 
                    // reader.Close();
                // }
                // catch (Exception ex)
