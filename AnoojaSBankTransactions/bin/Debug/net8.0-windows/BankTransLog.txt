@@ -88,3 +88,42 @@ Account Name : fdfdsg
 Transaction Amount : $10.00
 Transaction type isWithdrawal
 Account Balance is : $0.00
+*********** Beginning of Transaction at 11/7/2024 10:11:55 PM **********
+Account Number : 2898398
+Account Name : Anooja
+Transaction Amount : $0.00
+Transaction type isInterest
+Account Balance is : $0.00
+*********** Beginning of Transaction at 11/7/2024 10:12:09 PM **********
+Account Number : 2898398
+Account Name : Anooja
+Transaction Amount : $1,200.00
+Transaction type isDeposit
+Account Balance is : $0.00
+*********** Beginning of Transaction at 11/7/2024 10:12:15 PM **********
+Account Number : 2898398
+Account Name : Anooja
+Transaction Amount : $1,200.00
+Transaction type isWithdrawal
+Account Balance is : $0.00
+*********** Beginning of Transaction at 11/7/2024 10:15:33 PM **********
+Account Number : 23879782
+Account Name : si
+Starting Balance is : 100
+Transaction Type is : Interest
+Interest Amount : $5.00
+Account Balance is : $105.00
+*********** Beginning of Transaction at 11/7/2024 10:15:39 PM **********
+Account Number : 23879782
+Account Name : si
+Starting Balance is : 100
+Transaction Type is : Deposit
+Transaction Amount : $2.00
+Account Balance is : $102.00
+*********** Beginning of Transaction at 11/7/2024 10:15:43 PM **********
+Account Number : 23879782
+Account Name : si
+Starting Balance is : 100
+Transaction Type is : Withdrawal
+Transaction Amount : $2.00
+Account Balance is : $98.00

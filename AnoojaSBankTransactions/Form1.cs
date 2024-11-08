@@ -97,9 +97,19 @@ namespace AnoojaSBankTransactions
                             DateTime.Now.ToString("G") + " **********");
                 sw.WriteLine("Account Number : " + AccNum);
                 sw.WriteLine("Account Name : " + AccountName);
-                sw.WriteLine("Transaction Amount : " + TransactionAmt.ToString("C2"));
-                sw.WriteLine("Transaction type is" + TransactionType);
-                sw.WriteLine("Account Balance is : " + CalculateTypeBalance.ToString("C2"));
+
+                sw.WriteLine("Starting Balance is : " + StartingBalance);
+                sw.WriteLine("Transaction Type is : " + TransactionType);
+                if (rdoInterest.Checked)
+                {
+                    sw.WriteLine("Interest Amount : " + InterestAmount.ToString("C2"));
+                }
+                else
+                {
+                    sw.WriteLine("Transaction Amount : " + TransactionAmt.ToString("C2"));
+                }
+
+                sw.WriteLine("Account Balance is : " + Balance.ToString("C2"));
 
                 sw.Close();
 
