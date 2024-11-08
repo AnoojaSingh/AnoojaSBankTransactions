@@ -45,6 +45,8 @@ namespace AnoojaSBankTransactions
             rdoDeposit = new RadioButton();
             rdoInterest = new RadioButton();
             openFileDialog1 = new OpenFileDialog();
+            txtBalance = new TextBox();
+            label5 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -89,7 +91,7 @@ namespace AnoojaSBankTransactions
             label4.AutoSize = true;
             label4.Font = new Font("Lucida Fax", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.DarkGreen;
-            label4.Location = new Point(42, 140);
+            label4.Location = new Point(42, 157);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new Size(141, 15);
@@ -118,11 +120,11 @@ namespace AnoojaSBankTransactions
             // 
             // txtTransactionAmt
             // 
-            txtTransactionAmt.Location = new Point(207, 137);
+            txtTransactionAmt.Location = new Point(207, 154);
             txtTransactionAmt.Margin = new Padding(2);
             txtTransactionAmt.Name = "txtTransactionAmt";
             txtTransactionAmt.Size = new Size(241, 23);
-            txtTransactionAmt.TabIndex = 6;
+            txtTransactionAmt.TabIndex = 8;
             txtTransactionAmt.Enter += txtDepositAmt_Enter;
             txtTransactionAmt.Leave += txtDepositAmt_Leave;
             // 
@@ -143,7 +145,7 @@ namespace AnoojaSBankTransactions
             btnNewBalance.Margin = new Padding(2);
             btnNewBalance.Name = "btnNewBalance";
             btnNewBalance.Size = new Size(141, 32);
-            btnNewBalance.TabIndex = 7;
+            btnNewBalance.TabIndex = 9;
             btnNewBalance.Text = "View &New Balance";
             btnNewBalance.UseVisualStyleBackColor = true;
             btnNewBalance.Click += btnNewBalance_Click;
@@ -154,7 +156,7 @@ namespace AnoojaSBankTransactions
             btnClear.Margin = new Padding(2);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(78, 32);
-            btnClear.TabIndex = 11;
+            btnClear.TabIndex = 10;
             btnClear.Text = "&Clear";
             btnClear.UseVisualStyleBackColor = true;
             btnClear.Click += btnClear_Click;
@@ -175,9 +177,9 @@ namespace AnoojaSBankTransactions
             groupBox1.Controls.Add(rdoWithdrawal);
             groupBox1.Controls.Add(rdoDeposit);
             groupBox1.Controls.Add(rdoInterest);
-            groupBox1.Location = new Point(42, 182);
+            groupBox1.Location = new Point(42, 201);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(790, 79);
+            groupBox1.Size = new Size(790, 60);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Transaction Type";
@@ -186,7 +188,7 @@ namespace AnoojaSBankTransactions
             // rdoWithdrawal
             // 
             rdoWithdrawal.AutoSize = true;
-            rdoWithdrawal.Location = new Point(564, 41);
+            rdoWithdrawal.Location = new Point(564, 22);
             rdoWithdrawal.Name = "rdoWithdrawal";
             rdoWithdrawal.Size = new Size(85, 19);
             rdoWithdrawal.TabIndex = 2;
@@ -198,7 +200,7 @@ namespace AnoojaSBankTransactions
             // rdoDeposit
             // 
             rdoDeposit.AutoSize = true;
-            rdoDeposit.Location = new Point(328, 41);
+            rdoDeposit.Location = new Point(328, 22);
             rdoDeposit.Name = "rdoDeposit";
             rdoDeposit.Size = new Size(65, 19);
             rdoDeposit.TabIndex = 1;
@@ -210,7 +212,7 @@ namespace AnoojaSBankTransactions
             // rdoInterest
             // 
             rdoInterest.AutoSize = true;
-            rdoInterest.Location = new Point(142, 41);
+            rdoInterest.Location = new Point(142, 22);
             rdoInterest.Name = "rdoInterest";
             rdoInterest.Size = new Size(64, 19);
             rdoInterest.TabIndex = 0;
@@ -223,11 +225,33 @@ namespace AnoojaSBankTransactions
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // txtBalance
+            // 
+            txtBalance.Location = new Point(207, 129);
+            txtBalance.Margin = new Padding(2);
+            txtBalance.Name = "txtBalance";
+            txtBalance.Size = new Size(241, 23);
+            txtBalance.TabIndex = 6;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Lucida Fax", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.DarkGreen;
+            label5.Location = new Point(42, 132);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(108, 15);
+            label5.TabIndex = 14;
+            label5.Text = "Current Balance";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(868, 577);
+            Controls.Add(txtBalance);
+            Controls.Add(label5);
             Controls.Add(groupBox1);
             Controls.Add(btnQuit);
             Controls.Add(btnClear);
@@ -269,6 +293,7 @@ namespace AnoojaSBankTransactions
         private RadioButton rdoDeposit;
         private RadioButton rdoInterest;
         private OpenFileDialog openFileDialog1;
- 
+        private TextBox txtBalance;
+        private Label label5;
     }
 }

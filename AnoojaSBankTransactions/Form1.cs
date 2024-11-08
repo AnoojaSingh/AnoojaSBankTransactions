@@ -15,11 +15,12 @@ namespace AnoojaSBankTransactions
 
         private string BankTransactionLog = "BankTransLog.txt";
         private string BankConfig = "BankConfig.txt";
+        double Balance;
 
-    //public double InterestRate
+        //public double InterestRate
         //{
-           // get { return interestRate; }
-            //set { InterestRate = value; }
+        // get { return interestRate; }
+        //set { InterestRate = value; }
         //}
 
         public Form1()
@@ -31,11 +32,12 @@ namespace AnoojaSBankTransactions
         {
             string AccNum;
             string AccountName;
-            double TransactionAmt;
+            double TransactionAmt = 0;
+            double InterestAmount = 0;
             //keep old balance so it can be output
-            double CurrentBalance = 100;
-            double Balance = CurrentBalance;
-            bool DepositValid;
+           
+            
+            bool TransValid, BalanceValid;
             StreamWriter sw;
 
             double CalculateTypeBalance = 0;
@@ -43,19 +45,28 @@ namespace AnoojaSBankTransactions
             AccNum = txtAccNum.Text;
             AccountName = txtAccName.Text;
             //DepositAmt = double.Parse(txtDepositAmt.Text);
-            DepositValid = double.TryParse(txtTransactionAmt.Text, out TransactionAmt);
-            if (DepositValid)
+            BalanceValid = double.TryParse(txtBalance.Text, out Balance);
+            double StartingBalance = Balance;
+            if (!rdoInterest.Checked)
+            {
+                TransValid = double.TryParse(txtTransactionAmt.Text, out TransactionAmt);
+            } else
+            {
+                TransValid = true;
+            }
+            if (TransValid && BalanceValid )
             {
                 switch (TransactionType)
                  {
                     case INTEREST:
-                        CalculateTypeBalance = Balance + TransactionAmt * InterestRate; 
+                        InterestAmount = Balance * InterestRate; 
+                        Balance = Balance + InterestAmount;
                         break;
                     case DEPOSIT:
-                        CalculateTypeBalance = TransactionAmt + Balance;
+                        Balance = TransactionAmt + Balance;
                         break;
                     case WITHDRAWAL:
-                        CalculateTypeBalance = Balance - TransactionAmt;
+                        Balance = Balance - TransactionAmt;
                         break;
                     default:
                         lstOut.Items.Add("Invalid Selection");
@@ -63,14 +74,24 @@ namespace AnoojaSBankTransactions
                 }
 
                 //Processing
-                Balance = CurrentBalance + TransactionAmt;
+              //  Balance = Balance + TransactionAmt;
 
                 //Output
                 lstOut.Items.Add("Account Number : " + AccNum);
                 lstOut.Items.Add("Account Name : " + AccountName);
-                lstOut.Items.Add("Transaction Amount : " + TransactionAmt.ToString("C2"));
-                lstOut.Items.Add("Tranaction Type is : " + TransactionType);
-                lstOut.Items.Add("Account Balance is : " + CalculateTypeBalance.ToString("C2"));
+
+                lstOut.Items.Add("Starting Balance is : " + StartingBalance);
+                lstOut.Items.Add("Transaction Type is : " + TransactionType);
+                if (rdoInterest.Checked)
+                {
+                    lstOut.Items.Add("Interest Amount : " + InterestAmount.ToString("C2"));
+                } else
+                {
+                    lstOut.Items.Add("Transaction Amount : " + TransactionAmt.ToString("C2"));
+                }
+                
+                lstOut.Items.Add("Account Balance is : " + Balance.ToString("C2"));
+
                 sw = File.AppendText(BankTransactionLog);
                 sw.WriteLine("*********** Beginning of Transaction at " +
                             DateTime.Now.ToString("G") + " **********");
@@ -97,6 +118,8 @@ namespace AnoojaSBankTransactions
             lstOut.Items.Clear();
             txtAccNum.Focus();
             rdoInterest.Checked = true;
+            txtBalance.Clear();
+
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
@@ -182,11 +205,11 @@ namespace AnoojaSBankTransactions
             if (rdoInterest.Checked)
             {
                 TransactionType = INTEREST;
-                txtTransactionAmt.Enabled = true; 
+                txtTransactionAmt.Enabled = false;
             }
             else
             {
-                txtTransactionAmt.Enabled = false;
+                txtTransactionAmt.Enabled = true;
             }
         }
 
@@ -195,6 +218,7 @@ namespace AnoojaSBankTransactions
             if (rdoDeposit.Checked)
             {
                 TransactionType = DEPOSIT;
+                
             }
         }
 
@@ -203,6 +227,7 @@ namespace AnoojaSBankTransactions
             if(rdoWithdrawal.Checked)
             {
                 TransactionType = WITHDRAWAL;
+                
             }
         }
         
