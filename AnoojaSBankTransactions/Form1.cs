@@ -11,17 +11,19 @@ namespace AnoojaSBankTransactions
         const string INTEREST = "Interest";
         const string DEPOSIT = "Deposit";
         const string WITHDRAWAL = "Withdrawal";
-        private double InterestRate = .05;
+        private double interestRate;
+
+        private Form2 settingForm;
 
         private string BankTransactionLog = "BankTransLog.txt";
         private string BankConfig = "BankConfig.txt";
         double Balance;
 
-        //public double InterestRate
-        //{
-        // get { return interestRate; }
-        //set { InterestRate = value; }
-        //}
+        public double InterestRate
+        {
+            get { return interestRate; }
+            set { interestRate = value; }
+        }
 
         public Form1()
         {
@@ -35,8 +37,8 @@ namespace AnoojaSBankTransactions
             double TransactionAmt = 0;
             double InterestAmount = 0;
             //keep old balance so it can be output
-           
-            
+
+
             bool TransValid, BalanceValid;
             StreamWriter sw;
 
@@ -50,16 +52,17 @@ namespace AnoojaSBankTransactions
             if (!rdoInterest.Checked)
             {
                 TransValid = double.TryParse(txtTransactionAmt.Text, out TransactionAmt);
-            } else
+            }
+            else
             {
                 TransValid = true;
             }
-            if (TransValid && BalanceValid )
+            if (TransValid && BalanceValid)
             {
                 switch (TransactionType)
-                 {
+                {
                     case INTEREST:
-                        InterestAmount = Balance * InterestRate; 
+                        InterestAmount = Balance * InterestRate;
                         Balance = Balance + InterestAmount;
                         break;
                     case DEPOSIT:
@@ -70,11 +73,11 @@ namespace AnoojaSBankTransactions
                         break;
                     default:
                         lstOut.Items.Add("Invalid Selection");
-                        break;                
+                        break;
                 }
 
                 //Processing
-              //  Balance = Balance + TransactionAmt;
+                //  Balance = Balance + TransactionAmt;
 
                 //Output
                 lstOut.Items.Add("Account Number : " + AccNum);
@@ -85,11 +88,12 @@ namespace AnoojaSBankTransactions
                 if (rdoInterest.Checked)
                 {
                     lstOut.Items.Add("Interest Amount : " + InterestAmount.ToString("C2"));
-                } else
+                }
+                else
                 {
                     lstOut.Items.Add("Transaction Amount : " + TransactionAmt.ToString("C2"));
                 }
-                
+
                 lstOut.Items.Add("Account Balance is : " + Balance.ToString("C2"));
 
                 sw = File.AppendText(BankTransactionLog);
@@ -182,33 +186,34 @@ namespace AnoojaSBankTransactions
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            settingForm = new Form2(this);
             rdoInterest.Checked = true;
-            //StreamReader reader;
-            //bool valValid;
-            //bool fileBad = true;
-            // do
-            // {
-            //try
-            //{
+            StreamReader reader;
+            bool valValid;
+            bool fileBad = true;
+            do
+            {
+                try
+                {
 
-            //reader = File.OpenText(BankConfig);
-            //fileBad = false;
-            //double tempValue;
-            //valValid = double.TryParse(reader.ReadLine(), out InterestRate);
-            //InterestRate = tempValue; 
-                   // reader.Close();
-               // }
-               // catch (Exception ex)
-                //{
-                    //MessageBox.Show("The configuration file was not found. Please select a different file \n Error message",
-                        //ex.Message
-                       // );
-                    //openFileDialog1.InitialDirectory = Application.StartupPath;
-                   // openFileDialog2.ShowDialog();
-                   //BankConfig = openFileDialog1.FileName;
-              //  }
-          // } while (fileBad);
-       }
+                    reader = File.OpenText(BankConfig);
+                    fileBad = false;
+                    double tempValue;
+                    valValid = double.TryParse(reader.ReadLine(), out tempValue);
+                    InterestRate = tempValue;
+                    reader.Close();
+                }
+                catch (FileNotFoundException ex)
+                {
+                    MessageBox.Show("The configuration file was not found. Please select a different file \n Error message",
+                        ex.Message
+                        );
+                    openFileDialog1.InitialDirectory = Application.StartupPath;
+                    openFileDialog1.ShowDialog();
+                    BankConfig = openFileDialog1.FileName;
+                }
+            } while (fileBad);
+        }
 
         private void rdoInterest_CheckedChanged(object sender, EventArgs e)
         {
@@ -228,19 +233,23 @@ namespace AnoojaSBankTransactions
             if (rdoDeposit.Checked)
             {
                 TransactionType = DEPOSIT;
-                
+
             }
         }
 
         private void rdoWithdrawal_CheckedChanged(object sender, EventArgs e)
         {
-            if(rdoWithdrawal.Checked)
+            if (rdoWithdrawal.Checked)
             {
                 TransactionType = WITHDRAWAL;
-                
+
             }
         }
-        
 
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            settingForm.txtInterestRate.Text = InterestRate.ToString(); 
+            settingForm.ShowDialog();   
+        }
     }
 }

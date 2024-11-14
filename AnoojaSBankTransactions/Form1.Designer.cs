@@ -47,7 +47,10 @@ namespace AnoojaSBankTransactions
             openFileDialog1 = new OpenFileDialog();
             txtBalance = new TextBox();
             label5 = new Label();
+            menuStrip1 = new MenuStrip();
+            settingsToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -237,6 +240,23 @@ namespace AnoojaSBankTransactions
             label5.TabIndex = 14;
             label5.Text = "Current Balance";
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(24, 24);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { settingsToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1240, 33);
+            menuStrip1.TabIndex = 15;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            settingsToolStripMenuItem.Size = new Size(92, 29);
+            settingsToolStripMenuItem.Text = "Settings";
+            settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -256,11 +276,15 @@ namespace AnoojaSBankTransactions
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "AnoojaS";
             Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -286,5 +310,7 @@ namespace AnoojaSBankTransactions
         private OpenFileDialog openFileDialog1;
         private TextBox txtBalance;
         private Label label5;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
