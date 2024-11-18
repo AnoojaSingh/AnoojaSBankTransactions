@@ -148,3 +148,24 @@ Starting Balance is : 22
 Transaction Type is : Withdrawal
 Transaction Amount : $100.00
 Account Balance is : ($78.00)
+*********** Beginning of Transaction at 11/18/2024 11:19:33 AM **********
+Account Number : 
+Account Name : 
+Starting Balance is : 50
+Transaction Type is : Interest
+Interest Amount : $2.50
+Account Balance is : $52.50
+*********** Beginning of Transaction at 11/18/2024 11:38:32 AM **********
+Account Number : 
+Account Name : 
+Starting Balance is : 10
+Transaction Type is : Interest
+Interest Amount : $0.50
+Account Balance is : $10.50
+*********** Beginning of Transaction at 11/18/2024 11:38:40 AM **********
+Account Number : 
+Account Name : 
+Starting Balance is : 10
+Transaction Type is : Interest
+Interest Amount : $5,000.00
+Account Balance is : $5,010.00

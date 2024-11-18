@@ -16,7 +16,7 @@ namespace AnoojaSBankTransactions
         private Form2 settingForm;
 
         private string BankTransactionLog = "BankTransLog.txt";
-        private string BankConfig = "BankConfig.txt";
+        public string BankConfig = "BankConfig.txt";
         double Balance;
 
         public double InterestRate
@@ -249,7 +249,10 @@ namespace AnoojaSBankTransactions
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             settingForm.txtInterestRate.Text = InterestRate.ToString(); 
+
             settingForm.ShowDialog();   
         }
+
+        public void setValuesOnSecondForm();
     }
 }
