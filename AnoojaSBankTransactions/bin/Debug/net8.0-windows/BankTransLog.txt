@@ -169,3 +169,31 @@ Starting Balance is : 10
 Transaction Type is : Interest
 Interest Amount : $5,000.00
 Account Balance is : $5,010.00
+*********** Beginning of Transaction at 11/18/2024 8:58:51 PM **********
+Account Number : 8738734
+Account Name : Anooja
+Starting Balance is : 200
+Transaction Type is : Interest
+Interest Amount : $100,000.00
+Account Balance is : $100,200.00
+*********** Beginning of Transaction at 11/18/2024 8:59:06 PM **********
+Account Number : 8738734
+Account Name : Anooja
+Starting Balance is : 200
+Transaction Type is : Interest
+Interest Amount : $10.00
+Account Balance is : $210.00
+*********** Beginning of Transaction at 11/18/2024 8:59:14 PM **********
+Account Number : 8738734
+Account Name : Anooja
+Starting Balance is : 200
+Transaction Type is : Deposit
+Transaction Amount : $123.00
+Account Balance is : $323.00
+*********** Beginning of Transaction at 11/18/2024 8:59:19 PM **********
+Account Number : 8738734
+Account Name : Anooja
+Starting Balance is : 200
+Transaction Type is : Withdrawal
+Transaction Amount : $123.00
+Account Balance is : $77.00

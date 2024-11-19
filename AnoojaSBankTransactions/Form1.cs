@@ -249,10 +249,12 @@ namespace AnoojaSBankTransactions
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             settingForm.txtInterestRate.Text = InterestRate.ToString(); 
-
             settingForm.ShowDialog();   
         }
 
-        public void setValuesOnSecondForm();
+        public void setValuesOnSecondForm()
+        {
+            settingForm.txtInterestRate.Text = InterestRate.ToString();
+        }
     }
 }

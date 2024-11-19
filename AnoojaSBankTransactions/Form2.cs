@@ -45,10 +45,10 @@ namespace AnoojaSBankTransactions
         {
             bool InterestRateValid = false;
             double irtempValue;
-            InterestRateValid = double.TryParse(lblErrorMsg.Text, out irtempValue);
-            if (InterestRateValid)
+            InterestRateValid = double.TryParse(txtInterestRate.Text, out irtempValue);
+            if (!InterestRateValid) 
             {
-                lblErrorMsg.Focus();
+                txtInterestRate.Focus();
                 lblErrorMsg.Text = "Interest Rate is not valid.";
             }
             else
