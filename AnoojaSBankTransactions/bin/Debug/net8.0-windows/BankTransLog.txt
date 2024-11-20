@@ -1,199 +1,21 @@
-*********** Beginning of Transaction at 11/6/2024 11:54:18 AM **********
-Account Number : 45488787
-Account Name : Anooja
-Transaction Amount : $100.00
-Transaction type isInterest
-Account Balance is : $105.00
-*********** Beginning of Transaction at 11/6/2024 11:54:20 AM **********
-Account Number : 45488787
-Account Name : Anooja
-Transaction Amount : $100.00
-Transaction type isDeposit
-Account Balance is : $200.00
-*********** Beginning of Transaction at 11/6/2024 11:54:23 AM **********
-Account Number : 45488787
-Account Name : Anooja
-Transaction Amount : $100.00
-Transaction type isWithdrawal
-Account Balance is : $0.00
-*********** Beginning of Transaction at 11/6/2024 2:17:01 PM **********
-Account Number : yttfytr
-Account Name : gfhgfh
-Transaction Amount : $67.00
-Transaction type isInterest
-Account Balance is : $103.35
-*********** Beginning of Transaction at 11/6/2024 2:17:16 PM **********
-Account Number : yttfytr
-Account Name : gfhgfh
-Transaction Amount : $67.00
-Transaction type isDeposit
-Account Balance is : $167.00
-*********** Beginning of Transaction at 11/6/2024 2:17:19 PM **********
-Account Number : yttfytr
-Account Name : gfhgfh
-Transaction Amount : $67.00
-Transaction type isWithdrawal
-Account Balance is : $33.00
-*********** Beginning of Transaction at 11/6/2024 2:18:52 PM **********
-Account Number : ujyytytiuytiuy
-Account Name : jhgjghjh
-Transaction Amount : $5,600.00
-Transaction type isDeposit
-Account Balance is : $5,700.00
-*********** Beginning of Transaction at 11/6/2024 2:19:40 PM **********
-Account Number : ujyytytiuytiuy
-Account Name : jhgjghjh
-Transaction Amount : $67.00
-Transaction type isWithdrawal
-Account Balance is : $33.00
-*********** Beginning of Transaction at 11/6/2024 2:39:35 PM **********
-Account Number : dhhgfh
-Account Name : hgfhg
-Transaction Amount : $0.00
-Transaction type isInterest
-Account Balance is : $5.00
-*********** Beginning of Transaction at 11/6/2024 2:47:57 PM **********
-Account Number : gfdgf
-Account Name : fsgfd
-Transaction Amount : $0.00
-Transaction type isInterest
-Account Balance is : $0.00
-*********** Beginning of Transaction at 11/6/2024 2:48:15 PM **********
-Account Number : gfdgf
-Account Name : fsgfd
-Transaction Amount : $100.00
-Transaction type isDeposit
-Account Balance is : $0.00
-*********** Beginning of Transaction at 11/6/2024 2:49:11 PM **********
-Account Number : fgfdgf
-Account Name : dsffgds
-Transaction Amount : $100.00
-Transaction type isDeposit
-Account Balance is : $0.00
-*********** Beginning of Transaction at 11/6/2024 2:52:31 PM **********
-Account Number : gffdgd
-Account Name : fdfdsg
-Transaction Amount : $100.00
-Transaction type isDeposit
-Account Balance is : $0.00
-*********** Beginning of Transaction at 11/6/2024 2:52:39 PM **********
-Account Number : gffdgd
-Account Name : fdfdsg
-Transaction Amount : $0.00
-Transaction type isInterest
-Account Balance is : $0.00
-*********** Beginning of Transaction at 11/6/2024 2:52:50 PM **********
-Account Number : gffdgd
-Account Name : fdfdsg
-Transaction Amount : $10.00
-Transaction type isWithdrawal
-Account Balance is : $0.00
-*********** Beginning of Transaction at 11/7/2024 10:11:55 PM **********
-Account Number : 2898398
-Account Name : Anooja
-Transaction Amount : $0.00
-Transaction type isInterest
-Account Balance is : $0.00
-*********** Beginning of Transaction at 11/7/2024 10:12:09 PM **********
-Account Number : 2898398
-Account Name : Anooja
-Transaction Amount : $1,200.00
-Transaction type isDeposit
-Account Balance is : $0.00
-*********** Beginning of Transaction at 11/7/2024 10:12:15 PM **********
-Account Number : 2898398
-Account Name : Anooja
-Transaction Amount : $1,200.00
-Transaction type isWithdrawal
-Account Balance is : $0.00
-*********** Beginning of Transaction at 11/7/2024 10:15:33 PM **********
-Account Number : 23879782
-Account Name : si
-Starting Balance is : 100
-Transaction Type is : Interest
-Interest Amount : $5.00
-Account Balance is : $105.00
-*********** Beginning of Transaction at 11/7/2024 10:15:39 PM **********
-Account Number : 23879782
-Account Name : si
-Starting Balance is : 100
-Transaction Type is : Deposit
-Transaction Amount : $2.00
-Account Balance is : $102.00
-*********** Beginning of Transaction at 11/7/2024 10:15:43 PM **********
-Account Number : 23879782
-Account Name : si
-Starting Balance is : 100
-Transaction Type is : Withdrawal
-Transaction Amount : $2.00
-Account Balance is : $98.00
-*********** Beginning of Transaction at 11/11/2024 11:05:20 PM **********
-Account Number : d
-Account Name : d
-Starting Balance is : 22
-Transaction Type is : Interest
-Interest Amount : $1.10
-Account Balance is : $23.10
-*********** Beginning of Transaction at 11/11/2024 11:05:35 PM **********
-Account Number : d
-Account Name : d
-Starting Balance is : 22
-Transaction Type is : Deposit
-Transaction Amount : $100.00
-Account Balance is : $122.00
-*********** Beginning of Transaction at 11/11/2024 11:05:39 PM **********
-Account Number : d
-Account Name : d
-Starting Balance is : 22
-Transaction Type is : Withdrawal
-Transaction Amount : $100.00
-Account Balance is : ($78.00)
-*********** Beginning of Transaction at 11/18/2024 11:19:33 AM **********
-Account Number : 
-Account Name : 
-Starting Balance is : 50
-Transaction Type is : Interest
-Interest Amount : $2.50
-Account Balance is : $52.50
-*********** Beginning of Transaction at 11/18/2024 11:38:32 AM **********
-Account Number : 
-Account Name : 
-Starting Balance is : 10
-Transaction Type is : Interest
-Interest Amount : $0.50
-Account Balance is : $10.50
-*********** Beginning of Transaction at 11/18/2024 11:38:40 AM **********
-Account Number : 
-Account Name : 
-Starting Balance is : 10
-Transaction Type is : Interest
-Interest Amount : $5,000.00
-Account Balance is : $5,010.00
-*********** Beginning of Transaction at 11/18/2024 8:58:51 PM **********
-Account Number : 8738734
-Account Name : Anooja
-Starting Balance is : 200
-Transaction Type is : Interest
-Interest Amount : $100,000.00
-Account Balance is : $100,200.00
-*********** Beginning of Transaction at 11/18/2024 8:59:06 PM **********
-Account Number : 8738734
-Account Name : Anooja
+*********** Beginning of Transaction at 11/20/2024 11:40:52 AM **********
+Account Number : 456745
+Account Name : SH
 Starting Balance is : 200
 Transaction Type is : Interest
 Interest Amount : $10.00
 Account Balance is : $210.00
-*********** Beginning of Transaction at 11/18/2024 8:59:14 PM **********
-Account Number : 8738734
-Account Name : Anooja
+*********** Beginning of Transaction at 11/20/2024 11:40:56 AM **********
+Account Number : 456745
+Account Name : SH
 Starting Balance is : 200
 Transaction Type is : Deposit
-Transaction Amount : $123.00
-Account Balance is : $323.00
-*********** Beginning of Transaction at 11/18/2024 8:59:19 PM **********
-Account Number : 8738734
-Account Name : Anooja
+Transaction Amount : $12.00
+Account Balance is : $212.00
+*********** Beginning of Transaction at 11/20/2024 11:40:57 AM **********
+Account Number : 456745
+Account Name : SH
 Starting Balance is : 200
 Transaction Type is : Withdrawal
-Transaction Amount : $123.00
-Account Balance is : $77.00
+Transaction Amount : $12.00
+Account Balance is : $188.00

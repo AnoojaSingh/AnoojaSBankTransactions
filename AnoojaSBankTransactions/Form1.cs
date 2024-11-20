@@ -69,10 +69,18 @@ namespace AnoojaSBankTransactions
                         Balance = TransactionAmt + Balance;
                         break;
                     case WITHDRAWAL:
-                        Balance = Balance - TransactionAmt;
+                        if (TransactionAmt <= Balance)
+                        {
+                            Balance = Balance - TransactionAmt;
+                        }
+                        else
+                        {
+                            lstOut.Items.Add("Error: Insufficient withdrawal amount.");
+                            return;
+                        }
                         break;
                     default:
-                        lstOut.Items.Add("Invalid Selection");
+                        lstOut.Items.Add("Error: Invalid Selection");
                         break;
                 }
 
@@ -248,13 +256,28 @@ namespace AnoojaSBankTransactions
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            settingForm.txtInterestRate.Text = InterestRate.ToString(); 
-            settingForm.ShowDialog();   
+            settingForm.txtInterestRate.Text = InterestRate.ToString();
+            settingForm.ShowDialog();
         }
 
         public void setValuesOnSecondForm()
         {
             settingForm.txtInterestRate.Text = InterestRate.ToString();
+        }
+
+        private void btnDisplayLogs_Click(object sender, EventArgs e)
+        {
+            const int MAX_LOG_SIZE = 2000;
+            string[] BankLogs = new string[MAX_LOG_SIZE];
+            StreamReader sr = File.OpenText(BankTransactionLog);
+            int num_lines = 0;
+            while (sr.EndOfStream)
+            {
+                BankLogs[num_lines] = sr.ReadLine();
+                num_lines++;
+            }
+            sr.Close();
+
         }
     }
 }
