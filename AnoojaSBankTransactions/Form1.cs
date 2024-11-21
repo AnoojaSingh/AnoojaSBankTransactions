@@ -269,12 +269,13 @@ namespace AnoojaSBankTransactions
         {
             const int MAX_LOG_SIZE = 2000;
             string[] BankLogs = new string[MAX_LOG_SIZE];
-            StreamReader sr = File.OpenText(BankTransactionLog);
-            int num_lines = 0;
-            while (sr.EndOfStream)
+            int numLoglines = 0;
+            StreamReader sr;
+            sr = File.OpenText(BankTransactionLog);
+            while (!sr.EndOfStream)
             {
-                BankLogs[num_lines] = sr.ReadLine();
-                num_lines++;
+                BankLogs[numLoglines] = sr.ReadLine();
+                numLoglines++;
             }
             sr.Close();
 
