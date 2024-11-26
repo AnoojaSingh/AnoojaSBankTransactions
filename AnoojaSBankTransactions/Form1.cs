@@ -279,6 +279,20 @@ namespace AnoojaSBankTransactions
             }
             sr.Close();
 
+            int begTrans = -4;
+            int endTrans = +2;
+
+            for (int i = 0; i < numLoglines; i++)
+            {
+                if (BankLogs[i] == "Transaction Type is : " + TransactionType)
+                {
+                    for (int j = i + begTrans; j <= i + endTrans; j++)
+                    {
+                        lstOut.Items.Add(BankLogs[j]);
+                    }
+                }
+            }
+
         }
     }
 }
