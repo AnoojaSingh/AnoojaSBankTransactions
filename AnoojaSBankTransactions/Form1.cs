@@ -95,7 +95,7 @@ namespace AnoojaSBankTransactions
                 lstOut.Items.Add("Transaction Type is : " + TransactionType);
                 if (rdoInterest.Checked)
                 {
-                    lstOut.Items.Add("Interest Amount : " + InterestAmount.ToString("C2"));
+                    lstOut.Items.Add("Interest Amount : " + InterestAmount.ToString("C2") + "  (" + InterestRate.ToString("F2") + "% Interest)");
                 }
                 else
                 {
